@@ -52,7 +52,7 @@ void terminate(int signum = -1) {
   }
 
 #ifdef EXACT
-  if(global_crossings > lowerBound && global_nbest <= .75 * nSols) {
+  if(global_crossings > lowerBound && global_nbest < .75 * nSols) {
     if(showProgress) {
         std::cout << std::endl << "Found solution with " << global_crossings << " crossings but the confidence is too small: " << confidence <<  std::endl;
     }
