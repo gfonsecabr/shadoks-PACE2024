@@ -1,5 +1,5 @@
 # shadoks-PACE2024
-Code for the [Pace 2024](https://pacechallenge.org/2024/) challenge. Each input file contains a bipartite graph with two partitions called `top` and `bottom`. The `top` partition comes with an order. The `output` is the order of the `bottom` partition and the goal is to minimize the number of edge crossings.
+Code for the [Pace 2024](https://pacechallenge.org/2024/) challenge. Each input file contains a bipartite graph with two partitions called `top` and `bottom`. The `top` partition comes with an order. The `output` is the order of the `bottom` partition and the goal is to minimize the number of edge crossings when the two partitions are placed on two parallel lines in order.
 
 ## Compilation
 Preferably run
