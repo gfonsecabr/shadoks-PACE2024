@@ -1,5 +1,5 @@
 # shadoks-PACE2024
-Code for the [Pace 2024](https://pacechallenge.org/2024/) challenge. Each input file contains a bipartite graph with two partitions called `top` and `bottom`. The `top` partition comes with an order. The `output` is the order of the `bottom` partition and the goal is to minimize the number of edge crossings when the two partitions are placed on two parallel lines in order.
+Code for the [PACE 2024](https://pacechallenge.org/2024/) challenge. Each input file contains a bipartite graph with two partitions called `top` and `bottom`. The `top` partition comes with an order. The `output` is the order of the `bottom` partition and the goal is to minimize the number of edge crossings when the two partitions are placed on two parallel lines in order.
 
 ## Compilation
 Preferably run
@@ -38,6 +38,12 @@ The general idea of the algorithm is the following. We produce a number `nSols` 
 2. Randomly choosing an interval of `bottom` vertices and computing a `split` solution to that interval. The new order is kept if the number of crossings does not increase.
 
 The confidence is determined by the number of solutions with the best number of crossings divided by `nSols`. In the exact version a confidence of 75% is required. In both versions, we stop the calculation prematurely if the confidence gets to 100% (or if a trivial lower bound is reached).
+
+## Intuition
+
+The `split` heuristic randomly chooses a `bottom` vertex as the `pivot`. It then splits the remaining `bottom` vertices into two sets, depending on whether there are fewer crossings when they are placed to the left or to the right of the pivot (in case of equality, we choose randomly). This heuristic produced fairly good solutions and it has the advantage of being very random, producing very different solutions on each run. Hence, it is a good heuristic to avoid local optima. The `jump` local search step gives good results and can be implemented in time linear on the number of bottom vertices after building a matrix for the instance at preprocessing time. A careful combination and efficient implementation of these two ideas yilded the code herein.
+
+My inability to produce solutions where the heuristics often converge to suboptimal solutions with the same number of crossings motivated the submission to the exact track. Whether one can prove that the exact code does not output a suboptimal solution with high probability (depending on the random values used) is an open problem. Such a proof would require a good understanding of the space of solutions connected by some local search operations.
 
 ## Parameters
 Many parameters are hardcoded. The ones that are more easily modified are declared as constant on the top of `main.cpp`:
