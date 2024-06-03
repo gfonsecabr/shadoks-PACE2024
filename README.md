@@ -1,5 +1,5 @@
 # shadoks-PACE2024
-Code for the [PACE 2024](https://pacechallenge.org/2024/) challenge. Each input file contains a bipartite graph with two partitions called `top` and `bottom`. The `top` partition comes with an order. The `output` is the order of the `bottom` partition and the goal is to minimize the number of edge crossings when the two partitions are placed on two parallel lines in order.
+Code for the [PACE 2024](https://pacechallenge.org/2024/) challenge to solve the one-sided crossing minimization problem (OCM). Each input file contains a bipartite graph with two partitions called `top` and `bottom`. The `top` partition comes with a vertex order. The `output` is the vertex order of the `bottom` partition and the goal is to minimize the number of edge crossings when the vertices of the two partitions are placed on two parallel lines in order and the edges are drawn as line segments.
 
 ## Compilation
 Preferably run
@@ -50,3 +50,6 @@ Many parameters are hardcoded. The ones that are more easily modified are declar
 + `memlimit`: Number of bytes of memory to use in the matrix (used to speed up crossing calculations). Almost all memory use comes for this matrix.
 + `maxTime`: Number of seconds to run. The actual execution may take a few seconds more.
 + `nSols`: Number of solutions to improve simultaneously. Set to 12 in the heuristic version and 32 in the exact version.
+
+## Directories
+The base directory contain the source code. The `solutions` directory contains the best solutions we found with our solver for the public PACE instances (sometimes after several hours of computation, notably for `h044.sol`). Heuristic-track instances start with `h` and exact-track instances start with `e`.
