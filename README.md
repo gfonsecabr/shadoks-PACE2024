@@ -1,3 +1,5 @@
+optil.io username: guilhermefonseca
+
 # shadoks-PACE2024
 Code for the [PACE 2024](https://pacechallenge.org/2024/) challenge to solve the one-sided crossing minimization problem (OCM). Each input file contains a bipartite graph with two partitions called `top` and `bottom`. The `top` partition comes with a vertex order. The `output` is the vertex order of the `bottom` partition and the goal is to minimize the number of edge crossings when the vertices of the two partitions are placed on two parallel lines in order and the edges are drawn as line segments.
 
